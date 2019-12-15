@@ -1,0 +1,25 @@
+
+
+<div class="row justify-content-center">
+    <!-- <div class="progress" *ngIf="percentage | async as pct">
+        <progress  class="progress-bar" [value]="pct"></progress>
+
+      </div> -->
+
+<div class="container" *ngIf="snapshot | async as snap">
+
+  {{ snap.bytesTransferred }} of {{ snap.totalBytes }}
+
+
+    <div class="" *ngIf="downloadURL as url">
+      <h3>Resultados!</h3>
+      <img [src]="url" class="img-fluid img-thumbnail"><br>
+      <a class="btn btn-danger" [href]="url" target="_blank" rel="noopener">Baixar</a>
+    </div>
+
+
+  <button class="btn btn-primary" (click)="task.pause()" [disabled]="!isActive(snap)">Pausa</button>
+  <button class="btn btn-primary" (click)="task.cancel()" [disabled]="!isActive(snap)">Cancelar</button>
+  <button class="btn btn-primary" (click)="task.resume()" [disabled]="!(snap?.state === 'paused')">Resumo</button>
+</div>
+</div>
